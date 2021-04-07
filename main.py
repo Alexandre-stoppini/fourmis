@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import PySimpleGUI as sg
+import comportement
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+test = comportement.moveAnt()
 
+layout = [[sg.Text("Valeur de x : "+ str(test.x) +" . Et valeur de y : "+ str(test.y))], [sg.Button("Close window")]]
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+window = sg.Window("test", layout, margins=(300,150))
 
+while True:
+    event, values = window.read()
+    if event == "Close window" or event == sg.WIN_CLOSED:
+        break
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+window.close()
